@@ -1,4 +1,4 @@
-# GestionEtabWeb
+# GestionHotelWeb
 ## Deploiement du projet:
 ![Deployment](./img/deployment.png)
 
