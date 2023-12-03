@@ -2,6 +2,7 @@ package dao;
 
 import java.util.List;
 
+import entities.Hotel;
 import jakarta.ejb.Remote;
 
 @Remote
@@ -16,5 +17,7 @@ public interface IDaoRemote<T> {
 	public T findById(int id);
 
 	public List<T> findAll();
+
+	List<Hotel> findByVille(String name);
 
 }

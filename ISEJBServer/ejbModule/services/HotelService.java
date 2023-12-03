@@ -48,7 +48,10 @@ public class HotelService implements HotelIDao, IDaoRemote<Hotel> {
 		if (existingHotel != null) {
 			// Mettre à jour les propriétés de l'entité existante avec les nouvelles valeurs
 			existingHotel.setNom(o.getNom());
+			existingHotel.setAdresse(o.getAdresse());
+			existingHotel.setTelephone(o.getTelephone());
 
+//			existingHotel.setVille(o.getVille());
 			// Ajouter d'autres propriétés à mettre à jour...
 
 			// Mettre à jour l'entité dans la base de données
@@ -68,6 +71,14 @@ public class HotelService implements HotelIDao, IDaoRemote<Hotel> {
 	public List<Hotel> findAll() {
 		Query query = em.createQuery("select h from Hotel h");
 		return query.getResultList();
+	}
+
+	@Override
+	public List<Hotel> findByVille(String nom) {
+		List<Hotel> hotels = null;
+		hotels = em.createQuery("select h from Hotel h where h.ville.nom = ?1", Hotel.class).setParameter(1, nom)
+				.getResultList();
+		return hotels;
 	}
 
 }

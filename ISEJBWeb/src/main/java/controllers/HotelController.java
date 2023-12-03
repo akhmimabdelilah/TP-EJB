@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.util.List;
 
 import dao.HotelIDao;
+import dao.VilleIDao;
 import entities.Hotel;
+import entities.Ville;
 import jakarta.ejb.EJB;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletContext;
@@ -23,7 +25,7 @@ public class HotelController extends HttpServlet {
 	@EJB
 	private HotelIDao ejbh;
 	@EJB
-	private HotelIDao ejbv;
+	private VilleIDao ejbv;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -41,14 +43,18 @@ public class HotelController extends HttpServlet {
 			throws ServletException, IOException {
 		String action = request.getParameter("action");
 		if (action == null) {
-			List<Hotel> villes = ejbv.findAll();
+
+			List<Ville> villes = ejbv.findAll();
 			request.setAttribute("villes", villes);
+
+			ServletContext contextv = getServletContext();
+			contextv.setAttribute("ejbv", ejbv);
 
 			List<Hotel> hotels = ejbh.findAll();
 			request.setAttribute("hotels", hotels);
 
-			ServletContext context = getServletContext();
-			context.setAttribute("ejbv", ejbv);
+			ServletContext contexth = getServletContext();
+			contexth.setAttribute("ejbh", ejbh);
 
 			// Redirect to page hotel.jsp
 			RequestDispatcher dispatcher = request.getRequestDispatcher("hotel.jsp");
@@ -57,6 +63,7 @@ public class HotelController extends HttpServlet {
 		}
 
 		if (action.equals("edit")) {
+
 			int Id = Integer.parseInt(request.getParameter("id"));
 			Hotel updateHotel = ejbh.findById(Id);
 			request.setAttribute("updateHotel", updateHotel);
@@ -64,6 +71,31 @@ public class HotelController extends HttpServlet {
 			// Redirect to updateHotel.jsp
 			RequestDispatcher dispatcher = request.getRequestDispatcher("updateHotel.jsp");
 			dispatcher.forward(request, response);
+
+		} else if (action.equals("search")) {
+
+			String v = request.getParameter("ville");
+			int villeId = Integer.parseInt(v);
+//			Hotel h = ejbh.findByVille(villeId.getVille);
+
+			if (villeId == 0) {
+				List<Hotel> hotelList = ejbh.findAll();
+				request.setAttribute("hotels", hotelList);
+			} else {
+				Ville ville = ejbv.findById(villeId);
+				String villeName = ville.getNom();
+
+				List<Hotel> hotelList = ejbh.findByVille(villeName);
+				request.setAttribute("hotels", hotelList);
+			}
+
+			List<Ville> villeList = ejbv.findAll();
+			request.setAttribute("villes", villeList);
+
+			// Redirect to search.jsp
+			RequestDispatcher dispatcher = request.getRequestDispatcher("search.jsp");
+			dispatcher.forward(request, response);
+
 		}
 
 	}
@@ -75,6 +107,12 @@ public class HotelController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String action = request.getParameter("action");
+
+		List<Ville> villes = ejbv.findAll();
+		request.setAttribute("villes", villes);
+
+		List<Hotel> hotels = ejbh.findAll();
+		request.setAttribute("hotels", hotels);
 
 		if (action == null) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("ville.jsp");
@@ -129,10 +167,12 @@ public class HotelController extends HttpServlet {
 				int hotelId = Integer.parseInt(Id);
 				Hotel hToUpdate = ejbh.findById(hotelId);
 
-				if (hToUpdate != null && hotel != null && adresse != null && telephone != null) {
+//				if (hToUpdate != null && hotel != null && adresse != null && telephone != null) {
+				if (hToUpdate != null) {
 					hToUpdate.setNom(hotel);
 					hToUpdate.setAdresse(adresse);
 					hToUpdate.setTelephone(telephone);
+//					hToUpdate.setVille(ville);
 
 					Hotel updatedHotel = ejbh.update(hToUpdate);
 

@@ -7,10 +7,17 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Gestion des Hotels</title>
-<!-- Add Bootstrap CSS -->
+
+
+<link rel="stylesheet" href="styles/hotel.css">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="styles/hotel.css">
+<!-- <link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+	crossorigin="anonymous"> -->
+
 
 </head>
 
@@ -24,15 +31,15 @@
 				<div class="form-row flex-box">
 					<div class="col">
 						<label class="form-label" for="nom">Nom :</label> <input
-							type="text" class="form-control" name="nom" />
+							type="text" class="form-control" name="nom" required />
 					</div>
 					<div class="col">
 						<label class="form-label" for="adresse">Adresse :</label> <input
-							type="text" class="form-control" name="adresse" />
+							type="text" class="form-control" name="adresse" required />
 					</div>
 					<div class="col">
 						<label class="form-label" for="telephone">Telephone :</label> <input
-							type="text" class="form-control" name="telephone" />
+							type="text" class="form-control" name="telephone" required />
 
 					</div>
 					<div class="col">
@@ -61,6 +68,7 @@
 						<th>Nom</th>
 						<th>Adresse</th>
 						<th>Telephone</th>
+						<th>Ville</th>
 						<th>Modifier</th>
 						<th>Supprimer</th>
 					</tr>
@@ -73,6 +81,7 @@
 							<td>${h.nom}</td>
 							<td>${h.adresse}</td>
 							<td>${h.telephone}</td>
+							<td>${h.ville.nom}</td>
 							<td>
 								<form action="HotelController" method="get" class="inline-form">
 									<input type="hidden" name="id" value="${h.id}"> <input
@@ -96,11 +105,25 @@
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
 
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<!-- <script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+		crossorigin="anonymous"></script> -->
+
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<!-- <script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+		integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+		crossorigin="anonymous"></script> -->
+
+
 
 	<script>
 		function confirmDelete() {

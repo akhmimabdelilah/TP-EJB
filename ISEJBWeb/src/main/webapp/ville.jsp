@@ -23,13 +23,16 @@
 
 				<div class="form-row flex-box">
 					<div class="col">
-						<label class="form-label" for="ville">Nom :</label> <input
-							type="text" class="form-control" name="ville" value="" />
+						<label class="form-label" for="ville">Nom :</label>
+					</div>
+					<div class="col">
+						<input type="text" class="form-control" name="ville" value="" />
+					</div>
+					<div class="btn-group col">
+						<button class="btn btn-success" name="action" value="create">Enregistrer</button>
 					</div>
 				</div>
-				<div class="btn-group col">
-					<button class="btn btn-success" name="action" value="create">Enregistrer</button>
-				</div>
+
 			</form>
 			<hr>
 			<!-- <form action="VilleController" method="post" class="mb-3"> -->

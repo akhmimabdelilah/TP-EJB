@@ -16,7 +16,7 @@
 	<div class="nav navbar-expand-lg navbar-light bg-light flex-box">
 		<div class="logo">
 			<a class="navbar-brand logo" href="index.jsp"> <img
-				src="images/city.png" alt="Logo" width="50" height="50">
+				src="images/city.png" alt="Logo" width="70" height="50">
 			</a>
 		</div>
 		<div class="navbar-collapse menu" id="navbarNav">
@@ -24,6 +24,7 @@
 				href="ville.jsp">Ville</a> <a class="nav-link" href="hotel.jsp">Hotel</a>
 			<a class="nav-link" href="search.jsp">Search</a>
 		</div>
+
 	</div>
 
 

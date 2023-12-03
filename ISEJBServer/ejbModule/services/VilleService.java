@@ -4,6 +4,7 @@ import java.util.List;
 
 import dao.IDaoRemote;
 import dao.VilleIDao;
+import entities.Hotel;
 import entities.Ville;
 import jakarta.annotation.security.PermitAll;
 import jakarta.ejb.Stateless;
@@ -68,6 +69,11 @@ public class VilleService implements VilleIDao, IDaoRemote<Ville> {
 	public List<Ville> findAll() {
 		Query query = em.createQuery("select v from Ville v");
 		return query.getResultList();
+	}
+
+	@Override
+	public List<Hotel> findByVille(String nom) {
+		return null;
 	}
 
 }

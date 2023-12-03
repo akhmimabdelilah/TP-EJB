@@ -7,27 +7,34 @@
 <title>Update Ville</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="styles/ville.css">
 </head>
 <body>
 	<jsp:include page="navbar.jsp" />
 
-	<div class="container">
-		<h1 class="text-center mb-4">Modifier ville</h1>
+	<div class="container ville flex-box">
+		<h1 class="display-4 text-center mb-4">Modifier ville</h1>
 
 		<!-- Form to add a new city -->
-		<form class="custom_class" action="VilleController" method="post"
-			class="form-inline mb-3">
-			<div class="form-group mr-2">
-				<label for="villeInput" class="sr-only">Nom :</label> <input
-					type="text" name="ville" class="form-control" id="villeInput"
-					placeholder="Enter city name"
-					value="${updateVille != null ? updateVille.nom : ''}" required>
+		<form class="custom_class mb-3" action="VilleController" method="post">
+			<div class="form-row flex-box">
+				<div class="col">
+					<label for="villeInput">Nom :</label>
+				</div>
+				<div class="col mr-2">
+					<input type="text" name="ville" class="form-control"
+						id="villeInput" placeholder="Enter city name"
+						value="${updateVille != null ? updateVille.nom : ''}" required>
+				</div>
+				<div class="col mr-2">
+					<input type="hidden" name="action"
+						value="${updateVille != null ? 'update' : 'create'}"> <input
+						type="hidden" name="id"
+						value="${updateVille != null ? updateVille.id : ''}">
+					<button type="submit" class="btn btn-primary">${updateVille != null ? 'Update' : 'Enregistrer'}</button>
+				</div>
+
 			</div>
-			<input type="hidden" name="action"
-				value="${updateVille != null ? 'update' : 'create'}"> <input
-				type="hidden" name="id"
-				value="${updateVille != null ? updateVille.id : ''}">
-			<button type="submit" class="btn btn-primary">${updateVille != null ? 'Update' : 'Enregistrer'}</button>
 		</form>
 
 	</div>
