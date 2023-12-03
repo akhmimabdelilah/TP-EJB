@@ -24,6 +24,11 @@
 				href="ville.jsp">Ville</a> <a class="nav-link" href="hotel.jsp">Hotel</a>
 			<a class="nav-link" href="search.jsp">Search</a>
 		</div>
+		<div class="logo">
+			<a class="navbar-brand logo" href="index.jsp"> <img
+				src="images/hotel.png" alt="Logo" width="70" height="50">
+			</a>
+		</div>
 
 	</div>
 
