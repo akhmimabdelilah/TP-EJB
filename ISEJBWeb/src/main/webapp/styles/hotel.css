@@ -1,0 +1,96 @@
+body {
+	background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+	margin: 20px 0;
+	width: 100%;
+}
+
+.navbar {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.menu {
+	flex-direction: row;
+	width: 100%;
+}
+
+.flex-box {
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+}
+
+.hotel {
+	min-height: 100vh;
+}
+
+.form-container {
+	background: linear-gradient(to right, #ffffff, #e2e3e5);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	border-radius: 10px;
+	margin: 20px 0;
+}
+
+h1 {
+	color: #e0448d;
+}
+
+.form-row {
+	margin-bottom: 15px;
+}
+
+.form-label {
+	font-weight: bold;
+	color: #495057;
+}
+
+.form-control {
+	border-radius: 5px;
+}
+
+.btn-primary {
+	background: linear-gradient(to right, #fc7e5e, #fd9986);
+	border: none;
+}
+
+.btn-success {
+	background: linear-gradient(to right, #6dd5ed, #6f98fd);
+	border: none;
+}
+
+.list-group-item {
+	background: linear-gradient(to right, #f3d0ff, #b8b7e7);
+	margin-bottom: 5px;
+}
+
+table {
+	width: 100%;
+	margin-top: 20px;
+	border-collapse: collapse;
+}
+
+th,
+td {
+	border: 1px solid #ddd;
+	padding: 8px;
+	text-align: left;
+}
+
+th {
+	background-color: #f2f2f2;
+}
+
+.btn-group {
+	display: flex;
+}
+
+.btn-group .btn {
+	margin-right: 5px;
+}

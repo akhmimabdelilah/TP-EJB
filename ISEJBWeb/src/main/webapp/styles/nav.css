@@ -1,0 +1,39 @@
+.nav {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding: 5px 10px;
+	justify-content: between;
+}
+
+.logo {
+	flex: 1;
+	margin-left: 250px;
+}
+
+
+.flex-box {
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+}
+
+.menu {
+	display: flex;
+	align-items: center;
+	justify-content: between;
+
+}
+
+.navbar {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+a {
+	text-decoration: none;
+	list-style: none;
+	padding: 0 20px;
+}
